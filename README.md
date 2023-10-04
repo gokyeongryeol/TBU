@@ -1,5 +1,8 @@
 # Transferable Candidate Proposal with Bounded Uncertainty (TBU)
 
+<p align="center">
+<img src='./asset/pipeline.png' width="768">
+
 ### 1. docker container
 ```bash
 docker pull pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel

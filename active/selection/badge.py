@@ -10,7 +10,7 @@ from .strategy import Strategy
 def init_centers(X, K):
     embs = torch.Tensor(X)
     ind = torch.argmax(torch.norm(embs, 2, 1)).item()
-    # embs = embs.cuda() # allow for gpu usage
+    embs = embs.cuda() # allow for gpu usage
     mu = [embs[ind]]
     indsAll = [ind]
     centInds = [0.0] * len(embs)
