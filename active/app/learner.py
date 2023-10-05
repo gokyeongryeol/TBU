@@ -76,10 +76,11 @@ def active_one_round(rd, args, p_args, t_args):
             data,
             proxy,
             target
-            if args.percentile >= 0 or (not args.semi and (p_args.arc == t_args.arc))
+            if args.percentile >= 0 or args.n_filter > 0 or (not args.semi and (p_args.arc == t_args.arc))
             else proxy,
             args.n_MCdrop,
             args.percentile,
+            args.n_filter,
             batch_size=args.n_ev_batch,
             num_workers=args.n_worker,
         )
