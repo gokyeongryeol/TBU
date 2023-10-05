@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from .base import BaseModel
-from .module import ResNet, WideResNet
+from .module import ResNet, WideResNet, VGG
 
 
 class Architecture(BaseModel):
@@ -27,6 +27,9 @@ class Architecture(BaseModel):
             self.emb_net = WideResNet(
                 int(depth), int(width), dropout_rate=0.0, num_classes=0
             )
+        elif arc_cfg[0] == "vgg":
+            depth = arc_cfg[1]
+            self.emb_net = VGG(int(depth), num_classes=0)
         else:
             raise NotImplementedError
 

@@ -107,13 +107,13 @@ def parse_args():
     parser.add_argument(
         "--proxy_arc",
         type=str,
-        choices=["res-18", "wrn-28-2"],
+        choices=["res-18", "wrn-28-2", "vgg-16"],
         help="the proxy architecture for AL training",
     )
     parser.add_argument(
         "--target_arc",
         type=str,
-        choices=["res-18"],
+        choices=["res-18", "vgg-16"],
         help="the target architecture for AL evaluation",
     )
     parser.add_argument(
@@ -198,6 +198,12 @@ def get_sup_args(args, arc):
             s_args.lr = 0.1
             s_args.milestone = [160]
             s_args.gamma = 0.1
+    elif arc == "vgg-16":
+        s_args.n_epoch = 200
+
+        s_args.lr = 0.01
+        s_args.milestone = []
+        s_args.gamma = 1.0
     else:
         raise NotImplementedError
 
