@@ -76,7 +76,6 @@ class BaseModel(nn.Module, metaclass=ABCMeta):
 
         with torch.no_grad():
             for i, (x, _, y, idxs) in enumerate(loader):
-                print(i, len(loader))
                 x = x.cuda()
                 emb = self.forward_features(x)
                 prob = self.predict(x, n_MCdrop, pool=True)
